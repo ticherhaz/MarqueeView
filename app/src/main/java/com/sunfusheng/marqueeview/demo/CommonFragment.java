@@ -57,7 +57,7 @@ public class CommonFragment extends Fragment {
         marqueeView.startWithList(list);
         marqueeView.setOnItemClickListener((position, textView) -> Toast.makeText(getContext(), textView.getText() + "", Toast.LENGTH_SHORT).show());
 
-        marqueeView1.startWithText(getString(R.string.marquee_texts), R.anim.anim_top_in, R.anim.anim_bottom_out);
+        marqueeView1.startWithText(getString(R.string.marquee_texts), com.sunfusheng.marqueeview.R.anim.anim_top_in, com.sunfusheng.marqueeview.R.anim.anim_bottom_out);
         marqueeView1.setOnItemClickListener((position, textView) -> Toast.makeText(getContext(), position + ". " + textView.getText(), Toast.LENGTH_SHORT).show());
 
         marqueeView2.startWithText(getString(R.string.marquee_text));
