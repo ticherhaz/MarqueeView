@@ -26,6 +26,21 @@ public class AboutActivity extends AppCompatActivity {
 
     private WebSettings settings;
 
+    // 获取当前应用的版本号
+    public static String getVersionName(Context context) {
+        try {
+            PackageManager packageManager = context.getPackageManager();
+            PackageInfo packInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
+            String version = packInfo.versionName;
+            if (!TextUtils.isEmpty(version)) {
+                return version;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,22 +93,6 @@ public class AboutActivity extends AppCompatActivity {
             }
         });
     }
-
-    // 获取当前应用的版本号
-    public static String getVersionName(Context context) {
-        try {
-            PackageManager packageManager = context.getPackageManager();
-            PackageInfo packInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
-            String version = packInfo.versionName;
-            if (!TextUtils.isEmpty(version)) {
-                return version;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

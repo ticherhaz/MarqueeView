@@ -17,9 +17,9 @@ import java.util.List;
  */
 public class FragmentPagerItemAdapter extends FragmentPagerAdapter {
 
-    private Context context;
-    private List<FragmentPagerItem> items;
-    private SparseArray<Fragment> fragments = new SparseArray<>();
+    private final Context context;
+    private final List<FragmentPagerItem> items;
+    private final SparseArray<Fragment> fragments = new SparseArray<>();
     private OnInstantiateFragmentListener listener;
 
     private FragmentPagerItemAdapter(Context context, FragmentManager fragmentManager, List<FragmentPagerItem> items) {
@@ -74,9 +74,9 @@ public class FragmentPagerItemAdapter extends FragmentPagerAdapter {
 
     public static class Builder {
 
-        private Context context;
-        private FragmentManager fragmentManager;
-        private List<FragmentPagerItem> items = new ArrayList<>();
+        private final Context context;
+        private final FragmentManager fragmentManager;
+        private final List<FragmentPagerItem> items = new ArrayList<>();
 
         public Builder(Context context, FragmentManager fragmentManager) {
             this.context = context;

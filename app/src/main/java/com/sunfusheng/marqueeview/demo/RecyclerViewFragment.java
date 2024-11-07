@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.sunfusheng.marqueeview.MarqueeView;
-import com.sunfusheng.marqueeview.demo.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,12 +20,6 @@ import java.util.List;
  * @author sunfusheng on 2018/2/6.
  */
 public class RecyclerViewFragment extends Fragment {
-
-    public static class Item {
-        public String title;
-        public List<String> list;
-        public boolean showList;
-    }
 
     @Nullable
     @Override
@@ -72,8 +65,14 @@ public class RecyclerViewFragment extends Fragment {
         });
     }
 
+    public static class Item {
+        public String title;
+        public List<String> list;
+        public boolean showList;
+    }
+
     class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-        private List<Item> list;
+        private final List<Item> list;
 
         RecyclerViewAdapter(List<Item> list) {
             this.list = list;

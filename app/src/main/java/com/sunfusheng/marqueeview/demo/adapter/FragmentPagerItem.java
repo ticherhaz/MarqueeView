@@ -10,10 +10,10 @@ import android.support.v4.app.Fragment;
  */
 public class FragmentPagerItem {
 
-    private String title;
+    private final String title;
     private Fragment fragment;
-    private Class<? extends Fragment> clazz;
-    private Bundle args;
+    private final Class<? extends Fragment> clazz;
+    private final Bundle args;
 
     protected FragmentPagerItem(String title, @NonNull Fragment fragment) {
         this(title, fragment.getClass(), fragment.getArguments());

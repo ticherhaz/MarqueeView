@@ -25,24 +25,21 @@ import java.util.List;
  */
 public class MarqueeView<T> extends ViewFlipper {
 
+    private static final int GRAVITY_LEFT = 0;
+    private static final int GRAVITY_CENTER = 1;
+    private static final int GRAVITY_RIGHT = 2;
+    private static final int DIRECTION_BOTTOM_TO_TOP = 0;
+    private static final int DIRECTION_TOP_TO_BOTTOM = 1;
+    private static final int DIRECTION_RIGHT_TO_LEFT = 2;
+    private static final int DIRECTION_LEFT_TO_RIGHT = 3;
     private int interval = 3000;
     private boolean hasSetAnimDuration = false;
     private int animDuration = 1000;
     private int textSize = 14;
     private int textColor = 0xff000000;
     private boolean singleLine = false;
-
     private int gravity = Gravity.LEFT | Gravity.CENTER_VERTICAL;
-    private static final int GRAVITY_LEFT = 0;
-    private static final int GRAVITY_CENTER = 1;
-    private static final int GRAVITY_RIGHT = 2;
-
     private int direction = DIRECTION_BOTTOM_TO_TOP;
-    private static final int DIRECTION_BOTTOM_TO_TOP = 0;
-    private static final int DIRECTION_TOP_TO_BOTTOM = 1;
-    private static final int DIRECTION_RIGHT_TO_LEFT = 2;
-    private static final int DIRECTION_LEFT_TO_RIGHT = 3;
-
     private Typeface typeface;
 
     @AnimRes
@@ -53,6 +50,7 @@ public class MarqueeView<T> extends ViewFlipper {
     private int position;
     private List<T> messages = new ArrayList<>();
     private OnItemClickListener onItemClickListener;
+    private boolean isAnimStart = false;
 
     public MarqueeView(Context context) {
         this(context, null);
@@ -219,8 +217,6 @@ public class MarqueeView<T> extends ViewFlipper {
         });
     }
 
-    private boolean isAnimStart = false;
-
     private void start(final @AnimRes int inAnimResId, final @AnimRes int outAnimResID) {
         removeAllViews();
         clearAnimation();
@@ -318,10 +314,6 @@ public class MarqueeView<T> extends ViewFlipper {
         this.onItemClickListener = onItemClickListener;
     }
 
-    public interface OnItemClickListener {
-        void onItemClick(int position, TextView textView);
-    }
-
     /**
      * 设置进入动画和离开动画
      *
@@ -340,5 +332,9 @@ public class MarqueeView<T> extends ViewFlipper {
 
     public void setTypeface(Typeface typeface) {
         this.typeface = typeface;
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(int position, TextView textView);
     }
 }
