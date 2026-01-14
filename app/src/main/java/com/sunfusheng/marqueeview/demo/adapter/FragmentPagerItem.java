@@ -11,9 +11,9 @@ import android.support.v4.app.Fragment;
 public class FragmentPagerItem {
 
     private final String title;
-    private Fragment fragment;
     private final Class<? extends Fragment> clazz;
     private final Bundle args;
+    private Fragment fragment;
 
     protected FragmentPagerItem(String title, @NonNull Fragment fragment) {
         this(title, fragment.getClass(), fragment.getArguments());
